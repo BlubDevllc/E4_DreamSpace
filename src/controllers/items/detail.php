@@ -29,8 +29,7 @@ $user_id = getCurrentUserID();
 
 // Get item details
 $stmt = $conn->prepare(
-    'SELECT ItemID, Naam, Beschrijving, Type, Zeldzaamheid, Afbeelding,
-            Attack, Defense, Magic, Speed, HP
+    'SELECT ItemID, Naam, Beschrijving, Type, Zeldzaamheid, Kracht, Snelheid, Duurzaamheid, MagischeEigenschappen
      FROM ITEM
      WHERE ItemID = ?'
 );
@@ -72,7 +71,7 @@ $other_owners = $owners_stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Get similar items (same type or rarity)
 $similar_stmt = $conn->prepare(
-    'SELECT ItemID, Naam, Zeldzaamheid, Afbeelding
+    'SELECT ItemID, Naam, Zeldzaamheid
      FROM ITEM
      WHERE (Type = ? OR Zeldzaamheid = ?)
      AND ItemID != ?

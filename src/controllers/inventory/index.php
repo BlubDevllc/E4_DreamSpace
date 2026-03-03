@@ -51,24 +51,29 @@ $total = $count_result->fetch_assoc()['total'];
 $total_pages = ceil($total / $per_page);
 
 // Get inventory items
-$sql = 'SELECT i.InventarisID, i.ItemID, i.DatumToegevoegd,
-               it.Naam, it.Beschrijving, it.Type, it.Zeldzaamheid, it.Afbeelding,
-               it.Attack, it.Defense, it.Magic, it.Speed, it.HP
+$sql = 'SELECT i.InventarisID, i.ItemID, i.DatumAangeschaft,
+               it.Naam, it.Beschrijving, it.Type, it.Zeldzaamheid, it.Kracht, it.Snelheid, it.Duurzaamheid, it.MagischeEigenschappen
         FROM INVENTARIS i
         JOIN ITEM it ON i.ItemID = it.ItemID
         ' . $where . '
-        ORDER BY i.DatumToegevoegd DESC
+        ORDER BY i.DatumAangeschaft DESC
         LIMIT ? OFFSET ?';
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param($types . 'ii', ...$params, $per_page, $offset);
+
+// Add pagination params to array
+$params[] = $per_page;
+$params[] = $offset;
+$types_final = $types . 'ii';
+
+$stmt->bind_param($types_final, ...$params);
 $stmt->execute();
 $inventory_items = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Get inventory statistics
 $stats_sql = 'SELECT 
               COUNT(*) as total_items,
-              COUNT(DISTINCT ItemID) as unique_items,
+              COUNT(DISTINCT it.ItemID) as unique_items,
               GROUP_CONCAT(DISTINCT it.Zeldzaamheid) as rarities
              FROM INVENTARIS i
              JOIN ITEM it ON i.ItemID = it.ItemID
@@ -85,7 +90,7 @@ $rarity_sql = 'SELECT it.Zeldzaamheid, COUNT(*) as count
               JOIN ITEM it ON i.ItemID = it.ItemID
               WHERE i.UserID = ?
               GROUP BY it.Zeldzaamheid
-              ORDER BY FIELD(it.Zeldzaamheid, "Mythisch", "Legendarisch", "Epic", "Zeldzaam", "Ongewoon", "Gewoon")';
+              ORDER BY FIELD(it.Zeldzaamheid, "Legendarisch", "Episch", "Zeldzaam", "Algemeen")';
 
 $rarity_stmt = $conn->prepare($rarity_sql);
 $rarity_stmt->bind_param('i', $user_id);

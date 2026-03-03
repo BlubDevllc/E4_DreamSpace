@@ -86,15 +86,21 @@ $total = $count_result->fetch_assoc()['total'];
 $total_pages = ceil($total / $per_page);
 
 // Get items
-$sql = 'SELECT ItemID, Naam, Beschrijving, Type, Zeldzaamheid, Afbeelding 
+$sql = 'SELECT ItemID, Naam, Beschrijving, Type, Zeldzaamheid, Kracht, Snelheid, Duurzaamheid, MagischeEigenschappen 
         FROM ITEM 
         ' . $where_sql . '
         ORDER BY ' . $order_sql . '
         LIMIT ? OFFSET ?';
 
 $stmt = $conn->prepare($sql);
+
+// Add pagination params
+$params[] = $per_page;
+$params[] = $offset;
+$types_final = $types . 'ii';
+
 if (!empty($types)) {
-    $stmt->bind_param($types . 'ii', ...$params, $per_page, $offset);
+    $stmt->bind_param($types_final, ...$params);
 } else {
     $stmt->bind_param('ii', $per_page, $offset);
 }

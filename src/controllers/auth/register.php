@@ -103,9 +103,9 @@ $stmt = $conn->prepare(
 );
 
 $default_role = 'Speler';
-$is_active = true;
+$is_active = 1;
 
-$stmt->bind_param('ssss', $username, $email, $password_hash, $default_role);
+$stmt->bind_param('ssssi', $username, $email, $password_hash, $default_role, $is_active);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

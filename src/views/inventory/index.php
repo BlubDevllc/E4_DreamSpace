@@ -78,7 +78,7 @@
                 ?>
                     <div class="inventory-card">
                         <div class="card-image">
-                            <img src="<?php echo htmlspecialchars($item['Afbeelding']); ?>" 
+                            <img src="https://via.placeholder.com/300x300?text=<?php echo urlencode($item['Naam']); ?>" 
                                  alt="<?php echo htmlspecialchars($item['Naam']); ?>">
                             <span class="rarity-badge rarity-<?php echo $rarity_class; ?>">
                                 <?php echo htmlspecialchars($item['Zeldzaamheid']); ?>
@@ -90,27 +90,21 @@
                             
                             <!-- Stats -->
                             <div class="item-stats">
-                                <?php if ($item['HP'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">❤</span> <?php echo $item['HP']; ?> HP</div>
+                                <?php if ($item['Kracht'] > 0): ?>
+                                    <div class="stat"><span class="stat-icon">⚔</span> <?php echo $item['Kracht']; ?> STR</div>
                                 <?php endif; ?>
-                                <?php if ($item['Attack'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">⚔</span> <?php echo $item['Attack']; ?> ATK</div>
+                                <?php if ($item['Snelheid'] > 0): ?>
+                                    <div class="stat"><span class="stat-icon">⚡</span> <?php echo $item['Snelheid']; ?> SPD</div>
                                 <?php endif; ?>
-                                <?php if ($item['Defense'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">🛡</span> <?php echo $item['Defense']; ?> DEF</div>
-                                <?php endif; ?>
-                                <?php if ($item['Magic'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">✦</span> <?php echo $item['Magic']; ?> MAG</div>
-                                <?php endif; ?>
-                                <?php if ($item['Speed'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">⚡</span> <?php echo $item['Speed']; ?> SPD</div>
+                                <?php if ($item['Duurzaamheid'] > 0): ?>
+                                    <div class="stat"><span class="stat-icon">🛡</span> <?php echo $item['Duurzaamheid']; ?> DUR</div>
                                 <?php endif; ?>
                             </div>
 
                             <p class="item-description"><?php echo htmlspecialchars($item['Beschrijving']); ?></p>
                             
                             <div class="card-actions">
-                                <small>Toegevoegd: <?php echo date('d-m-Y', strtotime($item['DatumToegevoegd'])); ?></small>
+                                <small>Toegevoegd: <?php echo date('d-m-Y', strtotime($item['DatumAangeschaft'])); ?></small>
                                 <button class="btn btn-danger btn-sm" onclick="removeFromInventory(<?php echo $item['InventarisID']; ?>)">Verwijderen</button>
                             </div>
                         </div>
@@ -138,7 +132,7 @@
                             <tr>
                                 <td>
                                     <div class="item-row">
-                                        <img src="<?php echo htmlspecialchars($item['Afbeelding']); ?>" 
+                                        <img src="https://via.placeholder.com/50x50?text=<?php echo urlencode($item['Naam']); ?>" 
                                              alt="<?php echo htmlspecialchars($item['Naam']); ?>" 
                                              class="item-thumb">
                                         <div>
@@ -155,12 +149,12 @@
                                 </td>
                                 <td>
                                     <span class="stats-compact">
-                                        <?php if ($item['HP'] > 0): ?>HP<?php echo $item['HP']; ?><?php endif; ?>
-                                        <?php if ($item['Attack'] > 0): ?>ATK<?php echo $item['Attack']; ?><?php endif; ?>
-                                        <?php if ($item['Defense'] > 0): ?>DEF<?php echo $item['Defense']; ?><?php endif; ?>
+                                        <?php if ($item['Kracht'] > 0): ?>STR<?php echo $item['Kracht']; ?><?php endif; ?>
+                                        <?php if ($item['Snelheid'] > 0): ?>SPD<?php echo $item['Snelheid']; ?><?php endif; ?>
+                                        <?php if ($item['Duurzaamheid'] > 0): ?>DUR<?php echo $item['Duurzaamheid']; ?><?php endif; ?>
                                     </span>
                                 </td>
-                                <td><?php echo date('d-m-Y', strtotime($item['DatumToegevoegd'])); ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($item['DatumAangeschaft'])); ?></td>
                                 <td>
                                     <button class="btn btn-danger btn-sm" onclick="removeFromInventory(<?php echo $item['InventarisID']; ?>)">Verwijderen</button>
                                 </td>

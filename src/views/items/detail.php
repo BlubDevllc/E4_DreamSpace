@@ -8,7 +8,7 @@
             <!-- Item Image -->
             <div class="item-image-section">
                 <div class="item-image-wrapper">
-                    <img src="<?php echo htmlspecialchars($item['Afbeelding']); ?>" 
+                    <img src="https://via.placeholder.com/400x400?text=<?php echo urlencode($item['Naam']); ?>" 
                          alt="<?php echo htmlspecialchars($item['Naam']); ?>"
                          class="item-image-large">
                     <span class="rarity-badge rarity-<?php echo strtolower(str_replace(' ', '_', $item['Zeldzaamheid'])); ?>">
@@ -42,48 +42,30 @@
                 <div class="stats-box">
                     <h3>Statistieken</h3>
                     <div class="stats-grid">
-                        <?php if ($item['HP'] >= 0): ?>
+                        <?php if ($item['Kracht'] >= 0): ?>
                             <div class="stat-item">
                                 <div class="stat-bar">
-                                    <div class="stat-fill hp" style="width: <?php echo min(100, ($item['HP'] / 100) * 100); ?>%"></div>
+                                    <div class="stat-fill attack" style="width: <?php echo min(100, ($item['Kracht'] / 100) * 100); ?>%"></div>
                                 </div>
-                                <div class="stat-label">HP: <span><?php echo $item['HP']; ?></span></div>
+                                <div class="stat-label">Kracht: <span><?php echo $item['Kracht']; ?></span></div>
                             </div>
                         <?php endif; ?>
 
-                        <?php if ($item['Attack'] >= 0): ?>
+                        <?php if ($item['Snelheid'] >= 0): ?>
                             <div class="stat-item">
                                 <div class="stat-bar">
-                                    <div class="stat-fill attack" style="width: <?php echo min(100, ($item['Attack'] / 100) * 100); ?>%"></div>
+                                    <div class="stat-fill speed" style="width: <?php echo min(100, ($item['Snelheid'] / 100) * 100); ?>%"></div>
                                 </div>
-                                <div class="stat-label">Aanval: <span><?php echo $item['Attack']; ?></span></div>
+                                <div class="stat-label">Snelheid: <span><?php echo $item['Snelheid']; ?></span></div>
                             </div>
                         <?php endif; ?>
 
-                        <?php if ($item['Defense'] >= 0): ?>
+                        <?php if ($item['Duurzaamheid'] >= 0): ?>
                             <div class="stat-item">
                                 <div class="stat-bar">
-                                    <div class="stat-fill defense" style="width: <?php echo min(100, ($item['Defense'] / 100) * 100); ?>%"></div>
+                                    <div class="stat-fill defense" style="width: <?php echo min(100, ($item['Duurzaamheid'] / 100) * 100); ?>%"></div>
                                 </div>
-                                <div class="stat-label">Verdediging: <span><?php echo $item['Defense']; ?></span></div>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($item['Magic'] >= 0): ?>
-                            <div class="stat-item">
-                                <div class="stat-bar">
-                                    <div class="stat-fill magic" style="width: <?php echo min(100, ($item['Magic'] / 100) * 100); ?>%"></div>
-                                </div>
-                                <div class="stat-label">Magie: <span><?php echo $item['Magic']; ?></span></div>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($item['Speed'] >= 0): ?>
-                            <div class="stat-item">
-                                <div class="stat-bar">
-                                    <div class="stat-fill speed" style="width: <?php echo min(100, ($item['Speed'] / 100) * 100); ?>%"></div>
-                                </div>
-                                <div class="stat-label">Snelheid: <span><?php echo $item['Speed']; ?></span></div>
+                                <div class="stat-label">Duurzaamheid: <span><?php echo $item['Duurzaamheid']; ?></span></div>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -133,7 +115,7 @@
                         <div class="similar-card">
                             <a href="<?php echo BASE_URL; ?>?page=item-detail&id=<?php echo $similar['ItemID']; ?>">
                                 <div class="similar-image">
-                                    <img src="<?php echo htmlspecialchars($similar['Afbeelding']); ?>" 
+                                    <img src="https://via.placeholder.com/150x150?text=<?php echo urlencode($similar['Naam']); ?>" 
                                          alt="<?php echo htmlspecialchars($similar['Naam']); ?>">
                                     <span class="rarity-badge rarity-<?php echo $rarity_class; ?>">
                                         <?php echo htmlspecialchars($similar['Zeldzaamheid']); ?>

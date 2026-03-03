@@ -107,7 +107,7 @@
                     ?>
                         <div class="item-card">
                             <div class="item-image">
-                                <img src="<?php echo htmlspecialchars($item['Afbeelding']); ?>" 
+                                <img src="https://via.placeholder.com/300x300?text=<?php echo urlencode($item['Naam']); ?>" 
                                      alt="<?php echo htmlspecialchars($item['Naam']); ?>">
                                 <span class="rarity-badge rarity-<?php echo $rarity_class; ?>">
                                     <?php echo htmlspecialchars($item['Zeldzaamheid']); ?>
@@ -237,17 +237,12 @@
     display: inline-block;
 }
 
-.rarity-mythisch {
-    background: linear-gradient(135deg, #9400d3, #ff1493);
-    color: white;
-}
-
 .rarity-legendarisch {
     background: linear-gradient(135deg, #ffd700, #ff8c00);
     color: white;
 }
 
-.rarity-epic {
+.rarity-episch {
     background: linear-gradient(135deg, #4169e1, #1e90ff);
     color: white;
 }
@@ -257,12 +252,7 @@
     color: white;
 }
 
-.rarity-ongewoon {
-    background: #87ceeb;
-    color: white;
-}
-
-.rarity-gewoon {
+.rarity-algemeen {
     background: #d3d3d3;
     color: #333;
 }
