@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/layout.css">
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>assets/css/responsive.css">
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>assets/images/favicon.ico">
 </head>
@@ -21,7 +24,7 @@
         <nav class="navbar-container">
             <div class="navbar-brand">
                 <a href="<?php echo BASE_URL; ?>?page=home">
-                    <span class="brand-icon">✦</span>
+                    <span class="brand-icon"><i class="fas fa-star"></i></span>
                     <?php echo APP_NAME; ?>
                 </a>
             </div>
@@ -34,21 +37,21 @@
                 
                 <?php else: ?>
                     <!-- Logged In Navigation -->
-                    <li><a href="<?php echo BASE_URL; ?>?page=items" class="nav-link">Items</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>?page=inventory" class="nav-link">Inventaris</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>?page=trades" class="nav-link">Handel</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=items" class="nav-link"><i class="fas fa-box"></i> Items</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=inventory" class="nav-link"><i class="fas fa-backpack"></i> Inventaris</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=trades" class="nav-link"><i class="fas fa-sync"></i> Handel</a></li>
                     <li><a href="<?php echo BASE_URL; ?>?page=notifications" class="nav-link notification-bell">
-                        🔔 <span class="badge">3</span>
+                        <i class="fas fa-bell"></i> <span class="badge">3</span>
                     </a></li>
 
                     <?php if (isAdmin()): ?>
                         <!-- Admin Menu -->
                         <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle">⚙️ Admin</a>
+                            <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-cog"></i> Admin</a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo BASE_URL; ?>?page=admin">Dashboard</a></li>
                                 <li><a href="<?php echo BASE_URL; ?>?page=admin-users">Gebruikers</a></li>
-                                <li><a href="<?php echo BASE_URL; ?>?page=admin-items">Items</a></li>
+                                <li><a href="<?php echo BASE_URL; ?>?page=admin-items"><i class="fas fa-box"></i> Items</a></li>
                                 <li><a href="<?php echo BASE_URL; ?>?page=admin-statistics">Statistieken</a></li>
                             </ul>
                         </li>
@@ -56,7 +59,7 @@
 
                     <!-- User Menu -->
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">👤 <?php echo getCurrentUsername(); ?></a>
+                        <a href="#" class="nav-link dropdown-toggle"><i class="fas fa-user"></i> <?php echo getCurrentUsername(); ?></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo BASE_URL; ?>?page=profile">Profiel</a></li>
                             <li><hr></li>
@@ -67,7 +70,7 @@
             </ul>
 
             <!-- Mobile Menu Toggle -->
-            <button class="navbar-toggle">☰</button>
+            <button class="navbar-toggle"><i class="fas fa-bars"></i></button>
         </nav>
     </header>
 
@@ -87,7 +90,7 @@
                 <h4>Links</h4>
                 <ul>
                     <li><a href="<?php echo BASE_URL; ?>?page=home">Home</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>?page=items">Items</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=items"><i class="fas fa-box"></i> Items</a></li>
                     <li><a href="<?php echo BASE_URL; ?>?page=trades">Handel</a></li>
                 </ul>
             </div>

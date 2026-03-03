@@ -10,13 +10,13 @@
             <h3>Wat wil je doen?</h3>
             <ul>
                 <li><a href="<?php echo BASE_URL; ?>?page=home">↤ Terug naar Home</a></li>
-                <li><a href="<?php echo BASE_URL; ?>?page=items">🔍 Items Ontdekken</a></li>
+                <li><a href="<?php echo BASE_URL; ?>?page=items"><i class="fas fa-magnifying-glass"></i> Items Ontdekken</a></li>
                 <?php if (isLoggedIn()): ?>
-                    <li><a href="<?php echo BASE_URL; ?>?page=inventory">📦 Mijn Inventaris</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>?page=profile">👤 Mijn Profiel</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=inventory"><i class="fas fa-box"></i> Mijn Inventaris</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=profile"><i class="fas fa-user"></i> Mijn Profiel</a></li>
                 <?php else: ?>
-                    <li><a href="<?php echo BASE_URL; ?>?page=login">🔐 Inloggen</a></li>
-                    <li><a href="<?php echo BASE_URL; ?>?page=register">✍️ Registreren</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=login"><i class="fas fa-lock"></i> Inloggen</a></li>
+                    <li><a href="<?php echo BASE_URL; ?>?page=register"><i class="fas fa-pen"></i> Registreren</a></li>
                 <?php endif; ?>
             </ul>
         </div>

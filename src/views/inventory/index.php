@@ -67,7 +67,7 @@
                 <h2><?php echo $total; ?> items in inventaris</h2>
                 <div class="view-options">
                     <button class="view-btn active" data-view="grid">⊞ Grid</button>
-                    <button class="view-btn" data-view="table">☰ Lijst</button>
+                    <button class="view-btn" data-view="table"><i class="fas fa-list"></i> Lijst</button>
                 </div>
             </div>
 
@@ -91,13 +91,13 @@
                             <!-- Stats -->
                             <div class="item-stats">
                                 <?php if ($item['Kracht'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">⚔</span> <?php echo $item['Kracht']; ?> STR</div>
+                                    <div class="stat"><span class="stat-icon"><i class="fas fa-sword"></i></span> <?php echo $item['Kracht']; ?> STR</div>
                                 <?php endif; ?>
                                 <?php if ($item['Snelheid'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">⚡</span> <?php echo $item['Snelheid']; ?> SPD</div>
+                                    <div class="stat"><span class="stat-icon"><i class="fas fa-bolt"></i></span> <?php echo $item['Snelheid']; ?> SPD</div>
                                 <?php endif; ?>
                                 <?php if ($item['Duurzaamheid'] > 0): ?>
-                                    <div class="stat"><span class="stat-icon">🛡</span> <?php echo $item['Duurzaamheid']; ?> DUR</div>
+                                    <div class="stat"><span class="stat-icon"><i class="fas fa-shield"></i></span> <?php echo $item['Duurzaamheid']; ?> DUR</div>
                                 <?php endif; ?>
                             </div>
 

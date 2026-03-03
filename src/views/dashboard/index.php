@@ -2,7 +2,7 @@
 
 <div class="dashboard-hero">
     <div class="hero-content">
-        <h1>Welkom in DreamSpace, <?php echo getCurrentUsername(); ?>! 👋</h1>
+        <h1>Welkom in DreamSpace, <?php echo getCurrentUsername(); ?>! <i class="fas fa-wave-hand"></i></h1>
         <p>Beheer je inventaris, handel items en bouw je legendaire collectie</p>
     </div>
 </div>
@@ -11,7 +11,7 @@
     <!-- Quick Stats -->
     <section class="dashboard-stats">
         <div class="stat-card">
-            <div class="stat-icon">📦</div>
+            <div class="stat-icon"><i class="fas fa-box"></i></div>
             <div class="stat-info">
                 <h3>Inventaris</h3>
                 <p class="stat-number">12 items</p>
@@ -20,7 +20,7 @@
         </div>
 
         <div class="stat-card">
-            <div class="stat-icon">🤝</div>
+            <div class="stat-icon"><i class="fas fa-handshake"></i></div>
             <div class="stat-info">
                 <h3>Actieve Trades</h3>
                 <p class="stat-number">3</p>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="stat-card">
-            <div class="stat-icon">🔔</div>
+            <div class="stat-icon"><i class="fas fa-bell"></i></div>
             <div class="stat-info">
                 <h3>Notificaties</h3>
                 <p class="stat-number">5 nieuw</p>
@@ -38,7 +38,7 @@
         </div>
 
         <div class="stat-card">
-            <div class="stat-icon">⭐</div>
+            <div class="stat-icon"><i class="fas fa-star"></i></div>
             <div class="stat-info">
                 <h3>Best Items</h3>
                 <p class="stat-number">2 Legendarisch</p>
@@ -57,7 +57,7 @@
             </div>
             <div class="items-list">
                 <div class="item-row">
-                    <div class="item-thumb">⚔️</div>
+                    <div class="item-thumb"><i class="fas fa-sword"></i></div>
                     <div class="item-info">
                         <h4>Zwaard des Vuur</h4>
                         <p>Legendarisch Wapen • Sterkte: 90</p>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="item-row">
-                    <div class="item-thumb">🛡️</div>
+                    <div class="item-thumb"><i class="fas fa-shield"></i></div>
                     <div class="item-info">
                         <h4>Demonen Harnas</h4>
                         <p>Legendarisch Armor • Duurzaamheid: 95</p>
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="item-row">
-                    <div class="item-thumb">💍</div>
+                    <div class="item-thumb"><i class="fas fa-ring"></i></div>
                     <div class="item-info">
                         <h4>Helende Ring</h4>
                         <p>Zeldzaam Accessoire • Healing: +5 HP/sec</p>
@@ -97,7 +97,7 @@
             </div>
             <div class="trades-list">
                 <div class="trade-row pending">
-                    <div class="trade-status">⏳</div>
+                    <div class="trade-status"><i class="fas fa-hourglass-end"></i></div>
                     <div class="trade-info">
                         <h4>Aanbod van MysticMage</h4>
                         <p>IJs Amulet ↔ Schaduw Mantel • In afwachting</p>
@@ -107,16 +107,16 @@
                     </div>
                 </div>
                 <div class="trade-row completed">
-                    <div class="trade-status">✓</div>
+                    <div class="trade-status"><i class="fas fa-check"></i></div>
                     <div class="trade-info">
                         <h4>Trade met DragonKnight</h4>
                         <p>Lichtboog ↔ IJs Amulet • Voltooid</p>
                     </div>
                 </div>
                 <div class="trade-row pending">
-                    <div class="trade-status">⏳</div>
+                    <div class="trade-status"><i class="fas fa-hourglass-end"></i></div>
                     <div class="trade-info">
-                        <h4>Aanbod aan ThunderRogue</h4>
+                        <h4>Aanbof aan ThunderRogue</h4>
                         <p>Schaduw Mantel ↔ Helende Ring • In afwachting</p>
                     </div>
                     <div class="trade-action">
@@ -132,22 +132,22 @@
         <h2>Wat wil je doen?</h2>
         <div class="action-grid">
             <a href="<?php echo BASE_URL; ?>?page=items" class="action-card">
-                <span class="action-icon">🔍</span>
+                <span class="action-icon"><i class="fas fa-magnifying-glass"></i></span>
                 <h3>Items Ontdekken</h3>
                 <p>Blader door onze complete itemcatalogus</p>
             </a>
             <a href="<?php echo BASE_URL; ?>?page=inventory" class="action-card">
-                <span class="action-icon">📦</span>
+                <span class="action-icon"><i class="fas fa-box"></i></span>
                 <h3>Mijn Inventaris</h3>
                 <p>Beheer je eigen verzameling</p>
             </a>
             <a href="<?php echo BASE_URL; ?>?page=trades" class="action-card">
-                <span class="action-icon">🤝</span>
+                <span class="action-icon"><i class="fas fa-handshake"></i></span>
                 <h3>Nieuw Trade</h3>
                 <p>Zend een handelsvoorstel</p>
             </a>
             <a href="<?php echo BASE_URL; ?>?page=profile" class="action-card">
-                <span class="action-icon">👤</span>
+                <span class="action-icon"><i class="fas fa-user"></i></span>
                 <h3>Mijn Profiel</h3>
                 <p>Wijzig je accountgegevens</p>
             </a>

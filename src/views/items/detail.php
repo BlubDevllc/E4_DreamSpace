@@ -18,7 +18,7 @@
 
                 <?php if ($inventory_count > 0): ?>
                     <div class="alert alert-success">
-                        ✓ Je hebt dit item (<?php echo $inventory_count; ?>x in inventaris)
+                        <i class="fas fa-check"></i> Je hebt dit item (<?php echo $inventory_count; ?>x in inventaris)
                     </div>
                 <?php else: ?>
                     <div class="alert alert-info">

@@ -95,7 +95,7 @@
                 <h2>Resultaten: <?php echo $total; ?> items gevonden</h2>
                 <div class="view-options">
                     <button class="view-btn active" data-view="grid">⊞ Grid</button>
-                    <button class="view-btn" data-view="list">☰ Lijst</button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i> Lijst</button>
                 </div>
             </div>
 

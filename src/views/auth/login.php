@@ -54,18 +54,18 @@
         
         <div class="features">
             <div class="feature">
-                <span class="icon">📦</span>
-                <h3>Inventarisbeheer</h3>
+                <span class="icon"><i class="fas fa-box"></i></span>
+                <h3><i class="fas fa-box"></i> Inventarisbeheer</h3>
                 <p>Organiseer je verzameling items</p>
             </div>
             <div class="feature">
-                <span class="icon">🤝</span>
+                <span class="icon"><i class="fas fa-handshake"></i></span>
                 <h3>Handel Systeem</h3>
                 <p>Ruil items met andere spelers</p>
             </div>
             <div class="feature">
-                <span class="icon">⚔️</span>
-                <h3>Unieke Items</h3>
+                <span class="icon"><i class="fas fa-gem"></i></span>
+                <h3><i class="fas fa-gem"></i> Unieke Items</h3>
                 <p>Verzamel legendaire equipement</p>
             </div>
         </div>

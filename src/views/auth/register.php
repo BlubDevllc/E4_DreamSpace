@@ -77,17 +77,17 @@
         
         <div class="features">
             <div class="feature">
-                <span class="icon">🎮</span>
+                <span class="icon"><i class="fas fa-gamepad"></i></span>
                 <h3>Instant Toegang</h3>
                 <p>Meteen na registratie klaar om te spelen</p>
             </div>
             <div class="feature">
-                <span class="icon">🛡️</span>
+                <span class="icon"><i class="fas fa-shield"></i></span>
                 <h3>Veilig & Beveiligd</h3>
                 <p>Bcrypt wachtwoord encryptie</p>
             </div>
             <div class="feature">
-                <span class="icon">👥</span>
+                <span class="icon"><i class="fas fa-users"></i></span>
                 <h3>Community</h3>
                 <p>Handel en interactie met andere spelers</p>
             </div>
@@ -96,11 +96,11 @@
         <div class="password-requirements">
             <h4>Wachtwoord Vereisten:</h4>
             <ul>
-                <li>✓ Minimaal 8 tekens</li>
-                <li>✓ Minstens 1 HOOFDLETTER</li>
-                <li>✓ Minstens 1 kleine letter</li>
-                <li>✓ Minstens 1 getal</li>
-                <li>✓ Minstens 1 speciaal teken (!@#$%^&*)</li>
+                <li><i class="fas fa-check"></i> Minimaal 8 tekens</li>
+                <li><i class="fas fa-check"></i> Minstens 1 HOOFDLETTER</li>
+                <li><i class="fas fa-check"></i> Minstens 1 kleine letter</li>
+                <li><i class="fas fa-check"></i> Minstens 1 getal</li>
+                <li><i class="fas fa-check"></i> Minstens 1 speciaal teken (!@#$%^&*)</li>
             </ul>
         </div>
     </div>
