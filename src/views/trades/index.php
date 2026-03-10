@@ -14,34 +14,120 @@
     <!-- Active Trades -->
     <div class="tab-content active" data-tab="active">
         <div class="trades-list">
-            <div class="empty-state">
-                <div class="empty-icon"><i class="fas fa-sync"></i></div>
-                <h2>Geen actieve ruilvoorstellen</h2>
-                <p>Je hebt momenteel geen actieve ruilvoorstellen. 
-                   <a href="<?php echo BASE_URL; ?>?page=items">Verken items</a> om te handelen met andere spelers</p>
-            </div>
+            <?php if (!empty($active_trades)): ?>
+                <?php foreach ($active_trades as $trade): ?>
+                    <div class="trade-card">
+                        <div class="trade-header">
+                            <h3>Ruilvoorstel #<?php echo $trade['TradeID']; ?></h3>
+                            <span class="trade-status status-open"><?php echo htmlspecialchars($trade['Status']); ?></span>
+                        </div>
+                        <div class="trade-participants">
+                            <div class="participant">
+                                <h4>Jij</h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item1_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                            <div class="trade-arrows"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                            <div class="participant">
+                                <h4><?php echo htmlspecialchars($trade['other_user_name']); ?></h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item2_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trade-actions">
+                            <button class="btn btn-primary">Details</button>
+                            <button class="btn btn-danger">Annuleren</button>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="fas fa-sync"></i></div>
+                    <h2>Geen actieve ruilvoorstellen</h2>
+                    <p>Je hebt momenteel geen actieve ruilvoorstellen. 
+                       <a href="<?php echo BASE_URL; ?>?page=items">Verken items</a> om te handelen met andere spelers</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
     <!-- Trade History -->
     <div class="tab-content" data-tab="history">
         <div class="trades-list">
-            <div class="empty-state">
-                <div class="empty-icon"><i class="fas fa-scroll"></i></div>
-                <h2>Geen handelsgeschiedenis</h2>
-                <p>Je hebt nog geen ruilvoorstellen voltooid</p>
-            </div>
+            <?php if (!empty($history_trades)): ?>
+                <?php foreach ($history_trades as $trade): ?>
+                    <div class="trade-card">
+                        <div class="trade-header">
+                            <h3>Ruilvoorstel #<?php echo $trade['TradeID']; ?></h3>
+                            <span class="trade-status status-<?php echo strtolower($trade['Status']); ?>"><?php echo htmlspecialchars($trade['Status']); ?></span>
+                        </div>
+                        <div class="trade-participants">
+                            <div class="participant">
+                                <h4>Jij</h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item1_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                            <div class="trade-arrows"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                            <div class="participant">
+                                <h4><?php echo htmlspecialchars($trade['other_user_name']); ?></h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item2_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="fas fa-scroll"></i></div>
+                    <h2>Geen handelsgeschiedenis</h2>
+                    <p>Je hebt nog geen ruilvoorstellen voltooid</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
     <!-- Pending -->
     <div class="tab-content" data-tab="pending">
         <div class="trades-list">
-            <div class="empty-state">
-                <div class="empty-icon"><i class="fas fa-hourglass-end"></i></div>
-                <h2>Geen in afwachting</h2>
-                <p>Je hebt geen ruilvoorstellen in afwachting van reactie</p>
-            </div>
+            <?php if (!empty($pending_trades)): ?>
+                <?php foreach ($pending_trades as $trade): ?>
+                    <div class="trade-card">
+                        <div class="trade-header">
+                            <h3>Ruilvoorstel #<?php echo $trade['TradeID']; ?> (wacht op jou)</h3>
+                            <span class="trade-status status-open">In afwachting</span>
+                        </div>
+                        <div class="trade-participants">
+                            <div class="participant">
+                                <h4><?php echo htmlspecialchars($trade['other_user_name']); ?></h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item1_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                            <div class="trade-arrows"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                            <div class="participant">
+                                <h4>Jij</h4>
+                                <div class="items-offered">
+                                    <div class="item-chip"><?php echo htmlspecialchars($trade['item2_name'] ?? 'Item'); ?></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="trade-actions">
+                            <button class="btn btn-success">Accepteren</button>
+                            <button class="btn btn-danger">Weigeren</button>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="fas fa-hourglass-end"></i></div>
+                    <h2>Geen in afwachting</h2>
+                    <p>Je hebt geen ruilvoorstellen in afwachting van reactie</p>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

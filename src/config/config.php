@@ -114,8 +114,25 @@ function renderWithLayout($viewName, $data = [])
     renderView($viewName, $data);
     $content = ob_get_clean();
 
+    // Get unread notification count for layout
+    if (isLoggedIn()) {
+        $conn = getDatabaseConnection();
+        $user_id = getCurrentUserID();
+        $notif_sql = 'SELECT COUNT(*) as count FROM NOTIFICATIE WHERE UserID = ? AND Gelezen = 0';
+        $notif_stmt = $conn->prepare($notif_sql);
+        $notif_stmt->bind_param('i', $user_id);
+        $notif_stmt->execute();
+        $notif_result = $notif_stmt->get_result()->fetch_assoc();
+        $unread_notifications = $notif_result['count'] ?? 0;
+    } else {
+        $unread_notifications = 0;
+    }
+
     // Merge content with layout data
-    $layoutData = array_merge($data, ['content' => $content]);
+    $layoutData = array_merge($data, [
+        'content' => $content,
+        'unread_notifications' => $unread_notifications
+    ]);
 
     renderView('layout/main', $layoutData);
 }

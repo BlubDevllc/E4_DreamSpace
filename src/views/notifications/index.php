@@ -6,19 +6,44 @@
 
     <!-- Filters -->
     <div class="notifications-filter">
-        <button class="filter-btn active" data-filter="all">Alle (0)</button>
-        <button class="filter-btn" data-filter="trades">Ruilvoorstellen (0)</button>
-        <button class="filter-btn" data-filter="inventory">Inventaris (0)</button>
-        <button class="filter-btn" data-filter="system">Systeem (0)</button>
+        <button class="filter-btn active" data-filter="all">Alle (<?php echo count($notifications); ?>)</button>
+        <button class="filter-btn" data-filter="trades">Ruilvoorstellen (<?php echo $counts_by_type['Trade'] ?? 0; ?>)</button>
+        <button class="filter-btn" data-filter="inventory">Inventaris (<?php echo $counts_by_type['Inventory'] ?? 0; ?>)</button>
+        <button class="filter-btn" data-filter="system">Systeem (<?php echo $counts_by_type['System'] ?? 0; ?>)</button>
     </div>
 
     <!-- Notifications List -->
     <div class="notifications-list">
-        <div class="empty-state">
-            <div class="empty-icon"><i class="fas fa-bell"></i></div>
-            <h2>Geen meldingen</h2>
-            <p>Je hebt momenteel geen ongelezen meldingen. Wanneer andere spelers contact maken of je inventaris verandert, zie je dat hier</p>
-        </div>
+        <?php if (!empty($notifications)): ?>
+            <?php foreach ($notifications as $notif): ?>
+                <div class="notification-item <?php echo !$notif['Gelezen'] ? 'notification-unread' : ''; ?>">
+                    <div class="notification-content">
+                        <h3><?php echo htmlspecialchars($notif['Bericht']); ?></h3>
+                        <p><?php echo htmlspecialchars($notif['Bericht']); ?></p>
+                        <small><?php 
+                            $created = new DateTime($notif['CreatedAt']);
+                            $now = new DateTime();
+                            $interval = $created->diff($now);
+                            
+                            if ($interval->days > 0) echo $interval->days . ' dag' . ($interval->days > 1 ? 'en' : '') . ' geleden';
+                            elseif ($interval->h > 0) echo $interval->h . ' uur geleden';
+                            elseif ($interval->i > 0) echo $interval->i . ' minuten geleden';
+                            else echo 'net nu';
+                        ?></small>
+                    </div>
+                    <div class="notification-actions">
+                        <button class="btn btn-primary btn-sm">Bekijken</button>
+                        <button class="btn btn-secondary btn-sm">Sluiten</button>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="empty-state">
+                <div class="empty-icon"><i class="fas fa-bell"></i></div>
+                <h2>Geen meldingen</h2>
+                <p>Je hebt momenteel geen ongelezen meldingen. Wanneer andere spelers contact maken of je inventaris verandert, zie je dat hier</p>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- Example Notification (for development) -->

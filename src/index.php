@@ -58,7 +58,7 @@ switch ($page) {
     case 'home':
     case 'dashboard':
         if (isLoggedIn()) {
-            renderWithLayout('dashboard/index');
+            require_once __DIR__ . '/controllers/dashboard.php';
         } else {
             redirect('login');
         }
@@ -77,21 +77,18 @@ switch ($page) {
         break;
 
     case 'trades':
-        requireLogin();
-        renderWithLayout('trades/index');
+        require_once __DIR__ . '/controllers/trades.php';
         break;
 
     case 'notifications':
-        requireLogin();
-        renderWithLayout('notifications/index');
+        require_once __DIR__ . '/controllers/notifications.php';
         break;
 
     // =========== ADMIN PAGES ===========
     
     case 'admin':
     case 'admin-dashboard':
-        requireAdmin();
-        renderWithLayout('admin/dashboard');
+        require_once __DIR__ . '/controllers/admin/dashboard.php';
         break;
 
     case 'admin-users':

@@ -9,28 +9,28 @@
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-users"></i></div>
             <div class="stat-content">
-                <div class="stat-value">0</div>
+                <div class="stat-value"><?php echo $users_count; ?></div>
                 <div class="stat-label">Gebruikers</div>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-box"></i></div>
             <div class="stat-content">
-                <div class="stat-value">0</div>
+                <div class="stat-value"><?php echo $items_count; ?></div>
                 <div class="stat-label">Items</div>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-sync"></i></div>
             <div class="stat-content">
-                <div class="stat-value">0</div>
+                <div class="stat-value"><?php echo $trades_count; ?></div>
                 <div class="stat-label">Ruilvoorstellen</div>
             </div>
         </div>
         <div class="stat-card">
             <div class="stat-icon"><i class="fas fa-bell"></i></div>
             <div class="stat-content">
-                <div class="stat-value">0</div>
+                <div class="stat-value"><?php echo $notif_count; ?></div>
                 <div class="stat-label">Meldingen</div>
             </div>
         </div>
